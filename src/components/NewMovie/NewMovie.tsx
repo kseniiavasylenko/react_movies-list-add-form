@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { TextField } from '../TextField';
+import { Movie } from '../../types/Movie';
 
 export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
   const [title, setTitle] = useState('');
@@ -34,7 +35,7 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="title"
         label="Title"
         value={title}
-        onChange={(event) => setTitle(event.target.value)}
+        onChange={event => setTitle(event.target.value)}
         required
       />
 
@@ -42,14 +43,14 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="description"
         label="Description"
         value={description}
-        onChange={(event) => setDescription(event.target.value)}
+        onChange={event => setDescription(event.target.value)}
       />
 
       <TextField
         name="imgUrl"
         label="Image URL"
         value={imgUrl}
-        onChange={(event) => setImgUrl(event.target.value)}
+        onChange={event => setImgUrl(event.target.value)}
         required
       />
 
@@ -57,7 +58,7 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="imdbUrl"
         label="Imdb URL"
         value={imdbUrl}
-        onChange={(event) => setImdbUrl(event.target.value)}
+        onChange={event => setImdbUrl(event.target.value)}
         required
       />
 
@@ -65,7 +66,7 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="imdbId"
         label="Imdb ID"
         value={imdbId}
-        onChange={(event) => setImbdId(event.target.value)}
+        onChange={event => setImdbId(event.target.value)}
         required
       />
 
@@ -76,10 +77,10 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
             data-cy="submit-button"
             className="button is-link"
             disabled={
-              title.length === 0 ||
-              imgUrl.length === 0 ||
-              imdbUrl.length === 0 ||
-              imdbId.length === 0
+              title.trim().length === 0 ||
+              imgUrl.trim().length === 0 ||
+              imdbUrl.trim().length === 0 ||
+              imdbId.trim().length === 0
             }
           >
             Add
