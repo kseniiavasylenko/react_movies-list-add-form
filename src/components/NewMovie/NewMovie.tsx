@@ -27,6 +27,10 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
     setImdbId('');
   };
 
+  const handleChange = (setter: (value: string) => void) => (value: string) => {
+    setter(value);
+  };
+
   return (
     <form className="NewMovie" key={count} onSubmit={handleAddMovie}>
       <h2 className="title">Add a movie</h2>
@@ -35,7 +39,7 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="title"
         label="Title"
         value={title}
-        onChange={setTitle}
+        onChange={handleChange(setTitle)}
         required
       />
 
@@ -43,14 +47,14 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="description"
         label="Description"
         value={description}
-        onChange={setDescription}
+        onChange={handleChange(setDescription)}
       />
 
       <TextField
         name="imgUrl"
         label="Image URL"
         value={imgUrl}
-        onChange={setImgUrl}
+        onChange={handleChange(setImgUrl)}
         required
       />
 
@@ -58,7 +62,7 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="imdbUrl"
         label="Imdb URL"
         value={imdbUrl}
-        onChange={setImdbUrl}
+        onChange={handleChange(setImdbUrl)}
         required
       />
 
@@ -66,7 +70,7 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="imdbId"
         label="Imdb ID"
         value={imdbId}
-        onChange={setImdbId}
+        onChange={handleChange(setImdbId)}
         required
       />
 
