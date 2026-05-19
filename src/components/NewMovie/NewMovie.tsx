@@ -35,7 +35,7 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="title"
         label="Title"
         value={title}
-        onChange={event => setTitle(event.target.value)}
+        onChange={setTitle}
         required
       />
 
@@ -43,14 +43,14 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="description"
         label="Description"
         value={description}
-        onChange={event => setDescription(event.target.value)}
+        onChange={setDescription}
       />
 
       <TextField
         name="imgUrl"
         label="Image URL"
         value={imgUrl}
-        onChange={event => setImgUrl(event.target.value)}
+        onChange={setImgUrl}
         required
       />
 
@@ -58,7 +58,7 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="imdbUrl"
         label="Imdb URL"
         value={imdbUrl}
-        onChange={event => setImdbUrl(event.target.value)}
+        onChange={setImdbUrl}
         required
       />
 
@@ -66,7 +66,7 @@ export const NewMovie = ({ onAdd }: { onAdd: (movie: Movie) => void }) => {
         name="imdbId"
         label="Imdb ID"
         value={imdbId}
-        onChange={event => setImdbId(event.target.value)}
+        onChange={setImdbId}
         required
       />
 
